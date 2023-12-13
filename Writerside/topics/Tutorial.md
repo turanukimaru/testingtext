@@ -39,7 +39,7 @@ Gradle のコンパイラと Gradlew が利用する JAVA_HOME を Java17 にし
 ![image7.png](image7.png)
 4. Execute the following command in the terminal:
 
-## Controller のテストを作成する
+## Part 1  Controller のテストを作成する
 Controller でテストを作成すると、Service を mock にしたテストが生成されます。
 ![controller3.png](controller3.png)
 ![controller4.png](controller4.png)
@@ -166,16 +166,164 @@ testAdd2を書き換えます。（実際にはコピーしてテストを増や
 
 ## Part 2 特に Spring に関係ないコードのテスト
 
-This is the second part of the tutorial:
+Spring の機能を使わない純粋な Java コードはそのままテストが作成されます。
 
-1. Step 1
-2. Step 2
-3. Step n
+![pojo1.png](pojo1.png)
 
-## What you've learned {id="what-learned"}
+![pojo2.png](pojo2.png)
 
-Summarize what the reader achieved by completing this tutorial.
+ただ、テストが通るように生成されるため、バグが有っても生成されたテストそのままではバグが発見できません。
 
-<seealso>
-<!--Give some related links to how-to articles-->
-</seealso>
+![pojo3.png](pojo3.png)
+
+![pojo4.png](pojo4.png)
+
+## Part 3 Service のテスト
+
+サービスも簡単にテストを作ることが出来、
+リポジトリのMock化もしてくれます。
+
+![service1.png](service1.png)
+
+![service2.png](service2.png)
+
+```Java
+@ContextConfiguration(classes = {DummyService.class})
+@ExtendWith(SpringExtension.class)
+class DummyServiceDiffblueTest {
+    @MockBean
+    private ChildRepository childRepository;
+
+    @MockBean
+    private DummyRepository dummyRepository;
+
+    @Autowired
+    private DummyService dummyService;
+
+    /**
+     * Method under test: {@link DummyService#getDummies()}
+     */
+    @Test
+    void testGetDummies() {
+        ArrayList<Dummy> dummyList = new ArrayList<>();
+        when(dummyRepository.findAll()).thenReturn(dummyList);
+        List<Dummy> actualDummies = dummyService.getDummies();
+        verify(dummyRepository).findAll();
+        assertTrue(actualDummies.isEmpty());
+        assertSame(dummyList, actualDummies);
+    }
+
+    /**
+     * Method under test: {@link DummyService#getChildren(Long)}
+     */
+    @Test
+    void testGetChildren() {
+        ArrayList<Child> childList = new ArrayList<>();
+        when(childRepository.findByDummyId(Mockito.<Long>any())).thenReturn(childList);
+        List<Child> actualChildren = dummyService.getChildren(1L);
+        verify(childRepository).findByDummyId(Mockito.<Long>any());
+        assertTrue(actualChildren.isEmpty());
+        assertSame(childList, actualChildren);
+    }
+
+    /**
+     * Method under test: {@link DummyService#saveDummy(Dummy)}
+     */
+    @Test
+    void testSaveDummy() {
+        Dummy dummy = new Dummy();
+        ArrayList<Child> childList = new ArrayList<>();
+        dummy.setChildList(childList);
+        dummy.setComment("Comment");
+        dummy.setDummyId(1L);
+        dummy.setName("Name");
+        dummy.setText("Text");
+        when(dummyRepository.save(Mockito.<Dummy>any())).thenReturn(dummy);
+
+        Dummy dummy2 = new Dummy();
+        dummy2.setChildList(new ArrayList<>());
+        dummy2.setComment("Comment");
+        dummy2.setDummyId(1L);
+        dummy2.setName("Name");
+        dummy2.setText("Text");
+        dummyService.saveDummy(dummy2);
+        verify(dummyRepository).save(Mockito.<Dummy>any());
+        assertEquals("Comment", dummy2.getComment());
+        assertEquals("Name", dummy2.getName());
+        assertEquals("Text", dummy2.getText());
+        assertEquals(1L, dummy2.getDummyId().longValue());
+        assertEquals(childList, dummy2.getChildList());
+    }
+
+    /**
+     * Method under test: {@link DummyService#deleteDummy(Long)}
+     */
+    @Test
+    void testDeleteDummy() {
+        doNothing().when(dummyRepository).deleteById(Mockito.<Long>any());
+        dummyService.deleteDummy(1L);
+        verify(dummyRepository).deleteById(Mockito.<Long>any());
+    }
+}
+```
+##  Part 4 Repository のテスト
+
+Repository のテストも作成できますが、DB接続設定からテストコードを作るので設定完了後である必要があります。
+![repository1.png](repository1.png)
+
+生成されたテストコードは最初コメントアウトされています。これはテストコードが埋め込みDB（H2SQL）にデフォルトでアクセスしようとするからで、
+接続に失敗したり接続したは良いもののテーブル情報が無いためどうしてもエラーになります。（デフォルトで既存DBにアクセスできれば無事に生成できそうですが…）
+
+![repository2.png](repository2.png)
+
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)を追加することでテストが動くようになります。
+
+```Java
+@ContextConfiguration(classes = {ChildRepository.class})
+@EnableAutoConfiguration
+@EntityScan(basePackages = {"com.example.testing.entity"})
+@DataJpaTest(properties = {"spring.main.allow-bean-definition-overriding=true"})
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE) // ←自動生成時はこの行が無いのでDBアクセスに失敗して動かない。デフォルトの挙動をこれにする方法があればそのまま動くと思うのだが…
+class ChildRepositoryDiffblueTest {
+    @Autowired
+    private ChildRepository childRepository;
+
+    @Test
+//    @Disabled("TODO: Complete this test") // ←この行が生成されていてテストから除外されるため、この行は削除する。
+    void testFindByDummyId() {
+        // TODO: Complete this test. // ここからDB接続に失敗した時の StackTrace がコメントとして残されている。
+```
+
+DB 接続失敗の StackTrace がコメントとして残されているので削除すると以下のようになります。
+　Child.dummyId は外部キーなので flyway などを用いてテスト用データのマイグレーションをするべきでしょう。
+
+```Java
+@ContextConfiguration(classes = {ChildRepository.class})
+@EnableAutoConfiguration
+@EntityScan(basePackages = {"com.example.testing.entity"})
+@DataJpaTest(properties = {"spring.main.allow-bean-definition-overriding=true"})
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE) // 自動生成時はこの行が無いのでDBアクセスに失敗して動かない。デフォルトの挙動をこれにする方法があればそのまま動くと思うのだが…
+class ChildRepositoryDiffblueTest {
+    @Autowired
+    private ChildRepository childRepository;
+
+    /**
+     * Method under test: {@link ChildRepository#findByDummyId(Long)}
+     */
+    @Test
+    void testFindByDummyId() {
+        Child child = new Child();
+        child.setDummyId(1L);
+        child.setName("Name");
+        child.setText("Text");
+
+        Child child2 = new Child();
+        child2.setDummyId(2L);
+        child2.setName("com.example.testing.entity.Child");
+        child2.setText("com.example.testing.entity.Child");
+        childRepository.save(child);
+        childRepository.save(child2);
+        childRepository.findByDummyId(1L);
+    }
+}
+
