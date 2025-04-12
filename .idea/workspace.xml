@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1a6fbb09-9675-4555-9d0d-78703c1ac837" name="変更" comment="初期コミット">
-      <change beforePath="$PROJECT_DIR$/Writerside/text/oo3.mlt" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/text/oo3.mlt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/text/oo3B.mlt" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/text/oo3B.mlt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/text/oo4.mlt" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/text/oo4.mlt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/text/oo5.mlt" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/text/oo5.mlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/text/oo0.ast" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/text/oo0.ast" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/text/oo01B.mlt" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/text/oo01B.mlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/text/oo1.ast" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/text/oo1.ast" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/text/oo2.ast" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/text/oo2.ast" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +19,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;turanukimaru&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/turanukimaru/testingtext&quot;,
+    &quot;accountId&quot;: &quot;8a8b2edf-b7f0-4558-a43c-c6acbc62d6dc&quot;
+  }
+}</component>
   <component name="InstanceColorv3">
     <option name="map">
       <map>
@@ -62,8 +75,9 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;stardust.markdown.MarkdownSplitEditorSuppressor:keyList&quot;: []
