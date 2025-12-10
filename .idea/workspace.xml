@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1a6fbb09-9675-4555-9d0d-78703c1ac837" name="変更" comment="初期コミット">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Writerside/text/oo0.ast" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/text/oo0.ast" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/text/oo01B.mlt" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/text/oo01B.mlt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Writerside/text/oo1.ast" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/text/oo1.ast" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Writerside/text/oo2.ast" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/text/oo2.ast" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/text/oo2B.ast" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/text/oo2B.ast" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,10 +28,13 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/turanukimaru/testingtext&quot;,
-    &quot;accountId&quot;: &quot;8a8b2edf-b7f0-4558-a43c-c6acbc62d6dc&quot;
+    &quot;url&quot;: &quot;https://github.com/turanukimaru/testingtext.git&quot;,
+    &quot;accountId&quot;: &quot;0e45f327-1079-4c97-be08-aa0e9c4c9720&quot;
   }
 }</component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="true" />
+  </component>
   <component name="InstanceColorv3">
     <option name="map">
       <map>
@@ -76,8 +80,19 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/dev/go/clean_architecture&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;stardust.markdown.MarkdownSplitEditorSuppressor:keyList&quot;: []
@@ -88,9 +103,37 @@
       <recent name="C:\Users\turanukimaru\WritersideProjects\testingtext\Writerside\text" />
     </key>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="アプリケーションレベル" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="デフォルトタスク">
+      <changelist id="1a6fbb09-9675-4555-9d0d-78703c1ac837" name="変更" comment="初期コミット" />
+      <created>1744455451751</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744455451751</updated>
+      <workItem from="1744455452813" duration="43967000" />
+      <workItem from="1744967161905" duration="15525000" />
+      <workItem from="1762329474042" duration="702000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="初期コミット" />
     <option name="LAST_COMMIT_MESSAGE" value="初期コミット" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>false</integration-enabled>
+    <settings-migrated>true</settings-migrated>
   </component>
 </project>
