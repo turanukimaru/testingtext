@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1a6fbb09-9675-4555-9d0d-78703c1ac837" name="変更" comment="初期コミット">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/text/oo2C.mlt" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/text/oo2C.mlt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Writerside/text/oo3.ast" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/text/oo3.ast" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -123,7 +122,8 @@
       <workItem from="1765365148361" duration="116000" />
       <workItem from="1765626568443" duration="936000" />
       <workItem from="1766558035155" duration="1259000" />
-      <workItem from="1766934879310" duration="1931000" />
+      <workItem from="1766934879310" duration="5529000" />
+      <workItem from="1767709020637" duration="22000" />
     </task>
     <task id="LOCAL-00001" summary="初期コミット">
       <option name="closed" value="true" />
@@ -165,7 +165,15 @@
       <option name="project" value="LOCAL" />
       <updated>1766934900475</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="初期コミット">
+      <option name="closed" value="true" />
+      <created>1767040340535</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1767040340535</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
